@@ -29,25 +29,30 @@ export function ContactPage() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white overflow-hidden">
       {/* Hero */}
-      <section className="relative h-[60vh] overflow-hidden">
+      <section className="relative h-[70vh] overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1721352192940-b3430ffb713b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBwaGFybWFjZXV0aWNhbCUyMGZhY3RvcnklMjBwcm9kdWN0aW9uJTIwbGluZXxlbnwxfHx8fDE3NzY0ODk5NjB8MA&ixlib=rb-4.1.0&q=80&w=1080"
             alt="Contact"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-105"
           />
-          <div className="absolute inset-0 bg-primary/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-midnight-deep/95 via-midnight/80 to-midnight/70" />
+          <div className="absolute top-1/3 right-1/3 w-[300px] h-[300px] bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
             className="text-white"
           >
-            <h1 className="text-5xl md:text-6xl mb-6">Liên hệ</h1>
-            <p className="text-xl text-white/90 max-w-2xl">
+            <div className="w-12 h-[2px] bg-gold-gradient mb-8" />
+            <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 leading-[1.1]">
+              Liên hệ <span className="text-gold-gradient italic">với chúng tôi</span>
+            </h1>
+            <p className="text-xl text-white/60 max-w-2xl font-light">
               Sẵn sàng hỗ trợ bạn xây dựng thương hiệu mỹ phẩm & TPCN
             </p>
           </motion.div>
@@ -55,26 +60,30 @@ export function ContactPage() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20">
+      <section className="py-24 bg-ivory relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full gold-line" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
-              <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm mb-4">
-                Gửi yêu cầu
+              <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/5 mb-6">
+                <span className="text-gold text-xs uppercase tracking-[0.15em]">Gửi yêu cầu</span>
               </div>
-              <h2 className="text-4xl mb-6">Để lại thông tin</h2>
-              <p className="text-lg text-muted-foreground mb-8">
+              <h2 className="text-4xl md:text-5xl mb-4 leading-tight">
+                Để lại <span className="text-gold-gradient italic">thông tin</span>
+              </h2>
+              <p className="text-lg text-muted-foreground mb-10">
                 Điền thông tin bên dưới và chúng tôi sẽ liên hệ lại trong vòng 24 giờ
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label className="block mb-2 text-foreground">
+                  <label className="block mb-2 text-sm text-foreground uppercase tracking-wider">
                     Họ và tên *
                   </label>
                   <input
@@ -83,14 +92,14 @@ export function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-5 py-3.5 bg-white rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold/50 transition-all"
                     placeholder="Nguyễn Văn A"
                   />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block mb-2 text-foreground">
+                    <label className="block mb-2 text-sm text-foreground uppercase tracking-wider">
                       Email *
                     </label>
                     <input
@@ -99,13 +108,13 @@ export function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-5 py-3.5 bg-white rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold/50 transition-all"
                       placeholder="email@example.com"
                     />
                   </div>
 
                   <div>
-                    <label className="block mb-2 text-foreground">
+                    <label className="block mb-2 text-sm text-foreground uppercase tracking-wider">
                       Số điện thoại *
                     </label>
                     <input
@@ -114,14 +123,14 @@ export function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-5 py-3.5 bg-white rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold/50 transition-all"
                       placeholder="0901 234 567"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block mb-2 text-foreground">
+                  <label className="block mb-2 text-sm text-foreground uppercase tracking-wider">
                     Công ty
                   </label>
                   <input
@@ -129,20 +138,20 @@ export function ContactPage() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-5 py-3.5 bg-white rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold/50 transition-all"
                     placeholder="Tên công ty"
                   />
                 </div>
 
                 <div>
-                  <label className="block mb-2 text-foreground">
+                  <label className="block mb-2 text-sm text-foreground uppercase tracking-wider">
                     Dịch vụ quan tâm
                   </label>
                   <select
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-5 py-3.5 bg-white rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold/50 transition-all"
                   >
                     <option value="">Chọn dịch vụ</option>
                     <option value="oem">Gia công OEM</option>
@@ -154,7 +163,7 @@ export function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block mb-2 text-foreground">
+                  <label className="block mb-2 text-sm text-foreground uppercase tracking-wider">
                     Nội dung *
                   </label>
                   <textarea
@@ -163,16 +172,16 @@ export function ContactPage() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                    className="w-full px-5 py-3.5 bg-white rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold/50 resize-none transition-all"
                     placeholder="Mô tả ngắn gọn về dự án của bạn..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-all inline-flex items-center justify-center group"
+                  className="w-full bg-gold-shimmer text-midnight px-8 py-4 rounded-lg hover:shadow-xl hover:shadow-gold/20 transition-all duration-300 inline-flex items-center justify-center group font-semibold tracking-wide"
                 >
-                  <Send className="mr-2" size={20} />
+                  <Send className="mr-2" size={18} />
                   Gửi yêu cầu
                 </button>
               </form>
@@ -180,75 +189,64 @@ export function ContactPage() {
 
             {/* Contact Info */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
-              <div className="sticky top-24">
-                <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm mb-4">
-                  Thông tin liên hệ
+              <div className="sticky top-28">
+                <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/5 mb-6">
+                  <span className="text-gold text-xs uppercase tracking-[0.15em]">Thông tin liên hệ</span>
                 </div>
-                <h2 className="text-4xl mb-8">Kết nối với chúng tôi</h2>
+                <h2 className="text-4xl md:text-5xl mb-10 leading-tight">
+                  Kết nối <span className="text-gold-gradient italic">với chúng tôi</span>
+                </h2>
 
-                <div className="space-y-6 mb-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MapPin className="text-primary" size={24} />
+                <div className="space-y-6 mb-10">
+                  {[
+                    {
+                      icon: MapPin,
+                      title: "Địa chỉ",
+                      lines: ["Khu công nghiệp Tân Bình", "Thành phố Hồ Chí Minh, Việt Nam"],
+                    },
+                    {
+                      icon: Phone,
+                      title: "Điện thoại",
+                      lines: ["+84 28 1234 5678", "+84 90 123 4567"],
+                    },
+                    {
+                      icon: Mail,
+                      title: "Email",
+                      lines: ["info@nexusedge.vn", "sales@nexusedge.vn"],
+                    },
+                    {
+                      icon: Clock,
+                      title: "Giờ làm việc",
+                      lines: ["Thứ 2 - Thứ 6: 8:00 - 17:30", "Thứ 7: 8:00 - 12:00", "Chủ nhật: Nghỉ"],
+                    },
+                  ].map((info, index) => (
+                    <div key={index} className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <info.icon className="text-gold" size={20} />
+                      </div>
+                      <div>
+                        <h4 className="mb-1 text-sm font-heading">{info.title}</h4>
+                        {info.lines.map((line, i) => (
+                          <p key={i} className="text-muted-foreground text-sm">{line}</p>
+                        ))}
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="mb-1">Địa chỉ</h4>
-                      <p className="text-muted-foreground">
-                        Khu công nghiệp Tân Bình
-                        <br />
-                        Thành phố Hồ Chí Minh, Việt Nam
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone className="text-primary" size={24} />
-                    </div>
-                    <div>
-                      <h4 className="mb-1">Điện thoại</h4>
-                      <p className="text-muted-foreground">+84 28 1234 5678</p>
-                      <p className="text-muted-foreground">+84 90 123 4567</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="text-primary" size={24} />
-                    </div>
-                    <div>
-                      <h4 className="mb-1">Email</h4>
-                      <p className="text-muted-foreground">info@vietkorea.vn</p>
-                      <p className="text-muted-foreground">sales@vietkorea.vn</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Clock className="text-primary" size={24} />
-                    </div>
-                    <div>
-                      <h4 className="mb-1">Giờ làm việc</h4>
-                      <p className="text-muted-foreground">
-                        Thứ 2 - Thứ 6: 8:00 - 17:30
-                      </p>
-                      <p className="text-muted-foreground">Thứ 7: 8:00 - 12:00</p>
-                      <p className="text-muted-foreground">Chủ nhật: Nghỉ</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
 
                 {/* Map placeholder */}
-                <div className="bg-secondary rounded-2xl h-64 flex items-center justify-center overflow-hidden">
+                <div className="rounded-2xl h-64 overflow-hidden relative group">
                   <img
                     src="https://images.unsplash.com/photo-1717386255773-1e3037c81788?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMGZhY3RvcnklMjBpbnRlcmlvciUyMG1hbnVmYWN0dXJpbmd8ZW58MXx8fHwxNzc2NDg5OTYyfDA&ixlib=rb-4.1.0&q=80&w=1080"
                     alt="Factory location"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/30 to-transparent" />
                 </div>
               </div>
             </motion.div>
@@ -257,16 +255,18 @@ export function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-secondary">
+      <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm mb-4">
-              FAQ
+            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/5 mb-6">
+              <span className="text-gold text-xs uppercase tracking-[0.15em]">FAQ</span>
             </div>
-            <h2 className="text-4xl mb-4">Câu hỏi thường gặp</h2>
+            <h2 className="text-4xl md:text-5xl mb-4">
+              Câu hỏi <span className="text-gold-gradient italic">thường gặp</span>
+            </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-5">
             {[
               {
                 q: "MOQ (số lượng đặt hàng tối thiểu) là bao nhiêu?",
@@ -291,10 +291,11 @@ export function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white p-6 rounded-2xl"
+                className="bg-ivory p-8 rounded-2xl border border-border hover:border-gold/20 transition-all duration-300"
               >
-                <h4 className="mb-3">{faq.q}</h4>
-                <p className="text-muted-foreground">{faq.a}</p>
+                <div className="w-6 h-[2px] bg-gold-gradient mb-4" />
+                <h4 className="mb-3 text-lg">{faq.q}</h4>
+                <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
               </motion.div>
             ))}
           </div>

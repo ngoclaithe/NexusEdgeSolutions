@@ -1,136 +1,174 @@
 import { Link } from "react-router";
-import { ArrowRight, Award, CheckCircle, Users, TrendingUp, Clock } from "lucide-react";
+import { ArrowRight, Award, CheckCircle, Users, TrendingUp, Star, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
 
 export function HomePage() {
   return (
-    <div className="bg-white">
+    <div className="bg-white overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-[90vh] overflow-hidden">
+      <section className="relative h-screen overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1745420052527-a75fcc6aba58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw1fHxtb2Rlcm4lMjBwaGFybWFjZXV0aWNhbCUyMGZhY3RvcnklMjBwcm9kdWN0aW9uJTIwbGluZXxlbnwxfHx8fDE3NzY0ODk5NjB8MA&ixlib=rb-4.1.0&q=80&w=1080"
             alt="Modern production line"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-midnight-deep/95 via-midnight/85 to-midnight/70" />
+          {/* Decorative gold glow */}
+          <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-gold/8 rounded-full blur-[150px] pointer-events-none" />
+          <div className="absolute bottom-1/4 left-1/4 w-[300px] h-[300px] bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
         </div>
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl text-white"
+            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="max-w-3xl"
           >
-            <h1 className="text-5xl md:text-6xl mb-6 leading-tight">
-              Gia công mỹ phẩm & TPCN chuẩn Hàn – Nhật
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/5 backdrop-blur-sm mb-8"
+            >
+              <Sparkles size={14} className="text-gold" />
+              <span className="text-gold text-xs uppercase tracking-[0.2em]">
+                Chuẩn quốc tế Hàn – Nhật
+              </span>
+            </motion.div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl mb-8 leading-[1.1] text-white">
+              Kiến tạo{" "}
+              <span className="text-gold-gradient italic">vẻ đẹp</span>
+              <br />
+              chuẩn quốc tế
             </h1>
-            <p className="text-xl mb-8 text-white/90">
-              Giải pháp OEM/ODM trọn gói từ R&D đến sản xuất
+
+            <p className="text-lg md:text-xl mb-10 text-white/70 max-w-xl leading-relaxed font-light">
+              Giải pháp OEM/ODM trọn gói từ R&D đến sản xuất mỹ phẩm & thực phẩm chức năng cao cấp
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/contact"
-                className="bg-white text-primary px-8 py-4 rounded-lg hover:bg-white/90 transition-all inline-flex items-center justify-center group"
+                className="bg-gold-shimmer text-midnight px-8 py-4 rounded-lg hover:shadow-xl hover:shadow-gold/20 transition-all duration-300 inline-flex items-center justify-center group font-semibold tracking-wide"
               >
-                Nhận tư vấn
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                Nhận tư vấn miễn phí
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
               </Link>
               <Link
                 to="/services"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all inline-flex items-center justify-center"
+                className="border border-white/20 text-white px-8 py-4 rounded-lg hover:bg-white/5 hover:border-white/30 transition-all duration-300 inline-flex items-center justify-center backdrop-blur-sm"
               >
-                Xem dịch vụ
+                Khám phá dịch vụ
               </Link>
             </div>
           </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center"
+        >
+          <span className="text-white/30 text-[10px] uppercase tracking-[0.3em] mb-3">Scroll</span>
+          <div className="w-[1px] h-8 bg-gradient-to-b from-gold/60 to-transparent" />
+        </motion.div>
       </section>
 
       {/* Trust Section */}
-      <section className="py-12 bg-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-midnight relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-midnight-deep via-midnight to-midnight-deep" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <div className="text-4xl text-primary mb-2">15+</div>
-              <div className="text-muted-foreground">Năm kinh nghiệm</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <div className="text-4xl text-primary mb-2">500+</div>
-              <div className="text-muted-foreground">Sản phẩm phát triển</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
-              <div className="text-4xl text-primary mb-2">200+</div>
-              <div className="text-muted-foreground">Đối tác tin dùng</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-            >
-              <div className="text-4xl text-primary mb-2">GMP/ISO</div>
-              <div className="text-muted-foreground">Chứng nhận quốc tế</div>
-            </motion.div>
+            {[
+              { value: "15+", label: "Năm kinh nghiệm" },
+              { value: "500+", label: "Sản phẩm phát triển" },
+              { value: "200+", label: "Đối tác tin dùng" },
+              { value: "GMP/ISO", label: "Chứng nhận quốc tế" },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative"
+              >
+                <div className="text-4xl md:text-5xl font-heading font-bold text-gold-gradient mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-white/40 text-sm uppercase tracking-wider">
+                  {stat.label}
+                </div>
+                {index < 3 && (
+                  <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-10 bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* About Preview */}
-      <section className="py-20">
+      <section className="py-24 bg-ivory relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full gold-line" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8 }}
+              className="relative"
             >
-              <img
-                src="https://images.unsplash.com/photo-1721352192940-b3430ffb713b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBwaGFybWFjZXV0aWNhbCUyMGZhY3RvcnklMjBwcm9kdWN0aW9uJTIwbGluZXxlbnwxfHx8fDE3NzY0ODk5NjB8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Modern factory"
-                className="w-full h-[500px] object-cover rounded-2xl shadow-lg"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm mb-4">
-                Về chúng tôi
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1721352192940-b3430ffb713b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBwaGFybWFjZXV0aWNhbCUyMGZhY3RvcnklMjBwcm9kdWN0aW9uJTIwbGluZXxlbnwxfHx8fDE3NzY0ODk5NjB8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Modern factory"
+                  className="w-full h-[550px] object-cover rounded-2xl"
+                />
+                {/* Gold accent frame */}
+                <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-gold/20 rounded-2xl -z-10" />
+                {/* Floating stat card */}
+                <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-5 border border-gold/10">
+                  <div className="text-3xl font-heading font-bold text-gold">15+</div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wider">Năm kinh nghiệm</div>
+                </div>
               </div>
-              <h2 className="text-4xl mb-6">
-                Nhà máy sản xuất đạt chuẩn quốc tế
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/5 mb-6">
+                <span className="text-gold text-xs uppercase tracking-[0.15em]">Về chúng tôi</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl mb-6 text-foreground leading-tight">
+                Nhà máy sản xuất đạt chuẩn{" "}
+                <span className="text-gold-gradient italic">quốc tế</span>
               </h2>
-              <p className="text-lg text-muted-foreground mb-6">
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 Với hơn 15 năm kinh nghiệm trong lĩnh vực gia công OEM/ODM mỹ phẩm và thực phẩm chức năng, chúng tôi tự hào là đối tác tin cậy của hơn 200 thương hiệu tại Việt Nam, Hàn Quốc và Nhật Bản.
               </p>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 Nhà máy được trang bị công nghệ hiện đại, đạt chứng nhận GMP, ISO 22716 và tuân thủ nghiêm ngặt các tiêu chuẩn chất lượng quốc tế.
               </p>
               <Link
                 to="/about"
-                className="inline-flex items-center text-primary hover:text-primary/80 transition-colors group"
+                className="inline-flex items-center text-gold hover:text-gold-dark transition-colors group font-medium"
               >
-                Xem chi tiết
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                <span className="border-b border-gold/30 group-hover:border-gold pb-1">
+                  Xem chi tiết
+                </span>
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
               </Link>
             </motion.div>
           </div>
@@ -138,19 +176,19 @@ export function HomePage() {
       </section>
 
       {/* Services */}
-      <section className="py-20 bg-secondary">
+      <section className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm mb-4">
-              Dịch vụ
+            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/5 mb-6">
+              <span className="text-gold text-xs uppercase tracking-[0.15em]">Dịch vụ</span>
             </div>
-            <h2 className="text-4xl mb-4">Giải pháp toàn diện</h2>
+            <h2 className="text-4xl md:text-5xl mb-4">Giải pháp <span className="text-gold-gradient italic">toàn diện</span></h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Từ ý tưởng đến sản phẩm hoàn thiện, chúng tôi đồng hành cùng bạn trong mọi bước
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 title: "OEM",
@@ -175,22 +213,24 @@ export function HomePage() {
             ].map((service, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group"
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                className="group card-luxury bg-white rounded-2xl overflow-hidden border border-border"
               >
-                <div className="h-48 overflow-hidden">
+                <div className="h-52 overflow-hidden relative">
                   <img
                     src={service.img}
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.desc}</p>
+                  <div className="w-8 h-[2px] bg-gold-gradient mb-4" />
+                  <h3 className="text-xl mb-2 group-hover:text-gold transition-colors duration-300">{service.title}</h3>
+                  <p className="text-muted-foreground text-sm">{service.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -199,13 +239,14 @@ export function HomePage() {
       </section>
 
       {/* Product Showcase */}
-      <section className="py-20">
+      <section className="py-24 bg-ivory relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full gold-line" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm mb-4">
-              Sản phẩm
+            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/5 mb-6">
+              <span className="text-gold text-xs uppercase tracking-[0.15em]">Sản phẩm</span>
             </div>
-            <h2 className="text-4xl mb-4">Danh mục sản phẩm</h2>
+            <h2 className="text-4xl md:text-5xl mb-4">Danh mục sản phẩm <span className="text-gold-gradient italic">đa dạng</span></h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Chuyên sản xuất mỹ phẩm và thực phẩm chức năng đa dạng
             </p>
@@ -231,18 +272,24 @@ export function HomePage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.15, duration: 0.7 }}
                 className="group cursor-pointer"
               >
-                <div className="relative h-80 rounded-2xl overflow-hidden mb-4">
+                <div className="relative h-[420px] rounded-2xl overflow-hidden mb-5">
                   <img
                     src={product.img}
                     alt={product.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-midnight/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <div className="w-8 h-[2px] bg-gold-gradient mb-3 group-hover:w-12 transition-all duration-500" />
+                    <h3 className="text-2xl text-white mb-1">{product.title}</h3>
+                    <p className="text-white/50 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      Xem chi tiết →
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl text-center">{product.title}</h3>
               </motion.div>
             ))}
           </div>
@@ -250,16 +297,16 @@ export function HomePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-secondary">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm mb-4">
-              Ưu điểm
+            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/5 mb-6">
+              <span className="text-gold text-xs uppercase tracking-[0.15em]">Ưu điểm</span>
             </div>
-            <h2 className="text-4xl mb-4">Tại sao chọn chúng tôi</h2>
+            <h2 className="text-4xl md:text-5xl mb-4">Tại sao chọn <span className="text-gold-gradient italic">chúng tôi</span></h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: Award,
@@ -288,13 +335,13 @@ export function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+                className="card-luxury bg-ivory p-8 rounded-2xl border border-border group"
               >
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                  <item.icon className="text-primary" size={28} />
+                <div className="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors duration-300">
+                  <item.icon className="text-gold" size={26} />
                 </div>
                 <h3 className="text-xl mb-3">{item.title}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
+                <p className="text-muted-foreground text-sm">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -302,86 +349,101 @@ export function HomePage() {
       </section>
 
       {/* Process Preview */}
-      <section className="py-20">
+      <section className="py-24 bg-ivory relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full gold-line" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm mb-4">
-              Quy trình
+            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/5 mb-6">
+              <span className="text-gold text-xs uppercase tracking-[0.15em]">Quy trình</span>
             </div>
-            <h2 className="text-4xl mb-4">5 bước đơn giản</h2>
+            <h2 className="text-4xl md:text-5xl mb-4">5 bước <span className="text-gold-gradient italic">đơn giản</span></h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Từ ý tưởng đến sản phẩm hoàn thiện chỉ trong 5 bước
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-            {[
-              { step: "01", title: "Tư vấn & lên concept" },
-              { step: "02", title: "Phát triển công thức" },
-              { step: "03", title: "Sản xuất mẫu" },
-              { step: "04", title: "Sản xuất hàng loạt" },
-              { step: "05", title: "Kiểm tra & giao hàng" },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
-                  {item.step}
-                </div>
-                <h4 className="text-base">{item.title}</h4>
-              </motion.div>
-            ))}
+          <div className="relative">
+            {/* Connecting line */}
+            <div className="hidden md:block absolute top-8 left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+              {[
+                { step: "01", title: "Tư vấn & lên concept" },
+                { step: "02", title: "Phát triển công thức" },
+                { step: "03", title: "Sản xuất mẫu" },
+                { step: "04", title: "Sản xuất hàng loạt" },
+                { step: "05", title: "Kiểm tra & giao hàng" },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="text-center relative"
+                >
+                  <div className="w-16 h-16 bg-gold-gradient text-midnight rounded-full flex items-center justify-center mx-auto mb-5 text-lg font-heading font-bold shadow-lg shadow-gold/20 relative z-10">
+                    {item.step}
+                  </div>
+                  <h4 className="text-sm font-medium">{item.title}</h4>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           <div className="text-center mt-12">
             <Link
               to="/process"
-              className="inline-flex items-center text-primary hover:text-primary/80 transition-colors group"
+              className="inline-flex items-center text-gold hover:text-gold-dark transition-colors group font-medium"
             >
-              Xem chi tiết quy trình
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              <span className="border-b border-gold/30 group-hover:border-gold pb-1">
+                Xem chi tiết quy trình
+              </span>
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Full Width Factory Image */}
-      <section className="relative h-96 overflow-hidden">
+      {/* Full Width Banner */}
+      <section className="relative h-[500px] overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1717386255773-1e3037c81788?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMGZhY3RvcnklMjBpbnRlcmlvciUyMG1hbnVmYWN0dXJpbmd8ZW58MXx8fHwxNzc2NDg5OTYyfDA&ixlib=rb-4.1.0&q=80&w=1080"
           alt="Factory production"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-primary/70 flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-midnight-deep/95 via-midnight/80 to-midnight-deep/95" />
+        <div className="absolute inset-0 flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center text-white px-4"
+            className="text-center px-4 max-w-3xl"
           >
-            <h2 className="text-4xl md:text-5xl mb-4">
-              Năng lực sản xuất đạt chuẩn xuất khẩu
+            <div className="w-12 h-[2px] bg-gold-gradient mx-auto mb-8" />
+            <h2 className="text-4xl md:text-5xl mb-6 text-white leading-tight">
+              Năng lực sản xuất đạt chuẩn{" "}
+              <span className="text-gold-gradient italic">xuất khẩu</span>
             </h2>
-            <p className="text-xl text-white/90">
+            <p className="text-xl text-white/60 font-light">
               Đáp ứng đơn hàng lớn với chất lượng ổn định
             </p>
+            <div className="w-12 h-[2px] bg-gold-gradient mx-auto mt-8" />
           </motion.div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20">
+      <section className="py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm mb-4">
-              Đánh giá
+            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/5 mb-6">
+              <Star size={14} className="text-gold" />
+              <span className="text-gold text-xs uppercase tracking-[0.15em]">Đánh giá</span>
             </div>
-            <h2 className="text-4xl mb-4">Khách hàng nói gì về chúng tôi</h2>
+            <h2 className="text-4xl md:text-5xl mb-4">
+              Khách hàng nói gì <span className="text-gold-gradient italic">về chúng tôi</span>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -404,16 +466,21 @@ export function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-secondary p-8 rounded-2xl"
+                transition={{ delay: index * 0.15 }}
+                className="bg-ivory p-10 rounded-2xl border border-border relative"
               >
-                <div className="text-5xl text-accent mb-4">"</div>
-                <p className="text-lg text-foreground mb-6 leading-relaxed">
+                <div className="text-6xl font-heading text-gold/20 absolute top-6 left-8 leading-none">"</div>
+                <p className="text-lg text-foreground mb-8 leading-relaxed italic relative z-10 pt-6">
                   {testimonial.quote}
                 </p>
-                <div>
-                  <div className="text-base">{testimonial.author}</div>
-                  <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 rounded-full bg-gold-gradient flex items-center justify-center text-midnight font-heading font-bold">
+                    {testimonial.author[0]}
+                  </div>
+                  <div>
+                    <div className="font-medium">{testimonial.author}</div>
+                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -422,26 +489,31 @@ export function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-28 bg-midnight relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-midnight-deep via-midnight to-midnight-deep" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[150px] pointer-events-none" />
+
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl mb-6">
-              Bắt đầu thương hiệu của bạn ngay hôm nay
+            <div className="w-12 h-[2px] bg-gold-gradient mx-auto mb-8" />
+            <h2 className="text-4xl md:text-5xl lg:text-6xl mb-6 text-white leading-tight">
+              Bắt đầu <span className="text-gold-gradient italic">thương hiệu</span> của bạn ngay hôm nay
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8">
+            <p className="text-xl text-white/50 mb-10 max-w-2xl mx-auto font-light">
               Đội ngũ chuyên gia sẵn sàng tư vấn miễn phí về công thức và quy trình sản xuất
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center bg-white text-primary px-8 py-4 rounded-lg hover:bg-white/90 transition-all group"
+              className="inline-flex items-center bg-gold-shimmer text-midnight px-10 py-4 rounded-lg hover:shadow-xl hover:shadow-gold/20 transition-all duration-300 group font-semibold tracking-wide"
             >
               Nhận tư vấn miễn phí
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
             </Link>
+            <div className="w-12 h-[2px] bg-gold-gradient mx-auto mt-12" />
           </motion.div>
         </div>
       </section>
